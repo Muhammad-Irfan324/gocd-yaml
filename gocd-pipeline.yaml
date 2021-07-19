@@ -13,4 +13,11 @@ pipelines:
       shallow_clone: false
       auto_update: true
       branch: yonkers-juniper
-      destination: edx-platform-yonkers-juniper-release
+      destination: configuration
+      tasks:
+      - exec:
+          arguments:
+          - virtualenv --python /usr/bin/python3.7 config-venv
+          command: /bin/bash
+          working_directory: configuration
+          run_if: passed
