@@ -1,8 +1,8 @@
 format_version: 10
 pipelines:
   jenkins_credentials_upload:
-  group: jenkins_credentials_upload
-  label_template: ${jenkins_credentials_upload[:7]}-${COUNT}
+  group: defaultGroup
+  label_template: ${COUNT}
   lock_behavior: none
   display_order: -1
   materials:
@@ -26,8 +26,9 @@ pipelines:
             tasks:
             - exec:
                 arguments:
-                - -c
-                - virtualenv --python /usr/bin/python3.7 config-venv
-                command: /bin/bash
+                - --python
+                - /usr/bin/python3.7
+                - config-venv
+                command: virtualenv
                 working_directory: configuration
                 run_if: passed
