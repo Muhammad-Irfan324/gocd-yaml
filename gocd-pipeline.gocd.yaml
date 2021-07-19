@@ -1,7 +1,7 @@
 format_version: 10
 pipelines:
   jenkins_credentials_upload:
-  group: defaultGroup
+  group: jenkins_credentials_upload
   label_template: ${COUNT}
   lock_behavior: none
   display_order: -1
