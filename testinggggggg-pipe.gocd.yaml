@@ -1,0 +1,33 @@
+format_version: 10
+pipelines:
+  testinggggggg-pipe:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      edx-platform-yonkers-juniper-release:
+        git: https://github.com/edx/configuration.git
+        shallow_clone: false
+        auto_update: true
+        branch: yonkers-juniper
+        destination: configuration
+    stages:
+    - testing-stageeeeeeeee:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          executeeeeeiiing:
+            timeout: 0
+            tasks:
+            - exec:
+                arguments:
+                - --python
+                - /usr/bin/python3.7
+                - config-venv
+                command: virtualenv
+                run_if: passed
