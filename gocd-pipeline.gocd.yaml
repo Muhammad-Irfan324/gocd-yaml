@@ -32,3 +32,9 @@ pipelines:
                 command: virtualenv
                 working_directory: configuration
                 run_if: passed
+            - exec:
+                arguments:
+                - config-venv/bin/activate
+                command: source
+                working_directory: configuration
+                run_if: passed                
