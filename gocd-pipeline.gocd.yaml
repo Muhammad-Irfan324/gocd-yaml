@@ -12,16 +12,16 @@ pipelines:
       auto_update: true
       branch: yonkers-juniper
       destination: configuration
-      stages:
-      - installing requirements:
-          fetch_materials: true
-          keep_artifacts: false
-          clean_workspace: false
-          approval:
-            type: success
-            allow_only_on_success: false
-          jobs:
-            virtual_env:
+  stages:
+    - installing requirements:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          virtual_env:
             timeout: 0
             tasks:
             - exec:
