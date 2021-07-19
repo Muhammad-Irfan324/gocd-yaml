@@ -14,6 +14,8 @@ pipelines:
       auto_update: true
       branch: yonkers-juniper
       destination: configuration
+      stages:
+      artifacts:
       tasks:
       - exec:
           arguments:
