@@ -27,8 +27,8 @@ pipelines:
             - exec:
                 arguments:
                 - --python
-                - /usr/bin/python3.7
-                - config-venv
+                - /usr/bin/python3.6
+                - ~/config-venv
                 command: virtualenv
                 working_directory: configuration
                 run_if: passed
