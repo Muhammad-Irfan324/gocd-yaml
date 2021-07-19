@@ -34,7 +34,8 @@ pipelines:
                 run_if: passed
             - exec:
                 arguments:
-                - config-venv/bin/activate
-                command: source
+                - -c
+                - source config-venv/bin/activate
+                command: /bin/bash
                 working_directory: configuration
                 run_if: passed                
