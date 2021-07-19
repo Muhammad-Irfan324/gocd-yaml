@@ -13,7 +13,7 @@ pipelines:
         branch: yonkers-juniper
         destination: configuration
     stages:
-    - installing requirements:
+    - installing_requirements:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
