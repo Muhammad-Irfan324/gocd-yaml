@@ -33,7 +33,7 @@ pipelines:
           type: success
           allow_only_on_success: false
         jobs:
-          virtual_env_&_Upload_creds:
+          virtual_env_and_Upload_creds:
             timeout: 0
             tasks:
             - exec:
