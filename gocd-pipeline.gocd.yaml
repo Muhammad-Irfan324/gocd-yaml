@@ -32,13 +32,13 @@ pipelines:
                 command: virtualenv
                 working_directory: configuration
                 run_if: passed
-            - exec:
-                arguments:
-                - -c
-                - source config-venv/bin/activate
-                command: /bin/bash
-                working_directory: configuration
-                run_if: passed                
+            # - exec:
+            #     arguments:
+            #     - -c
+            #     - source config-venv/bin/activate
+            #     command: /bin/bash
+            #     working_directory: configuration
+            #     run_if: passed                
             - exec:
                 arguments:
                 - -c
@@ -49,14 +49,9 @@ pipelines:
             - exec:
                 arguments:
                 - -c
+                - source config-venv/bin/activate
                 - pip install -r requirements.txt
+                - ansible version
                 command: /bin/bash
                 working_directory: configuration
-                run_if: passed  
-            - exec:
-                arguments:
-                - -c
-                - ansible --version
-                command: /bin/bash
-                working_directory: configuration
-                run_if: passed                  
+                run_if: passed          
