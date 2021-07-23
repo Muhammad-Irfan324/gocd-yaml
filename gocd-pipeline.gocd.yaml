@@ -39,3 +39,17 @@ pipelines:
                 command: /bin/bash
                 working_directory: configuration
                 run_if: passed                
+            - exec:
+                arguments:
+                - -c
+                - sed -i 's/mysqlclient==1.3.0/mysqlclient==1.4.2/g' requirements.txt
+                command: /bin/bash
+                working_directory: configuration
+                run_if: passed
+            - exec:
+                arguments:
+                - -c
+                - pip install -r requirements.txt
+                command: /bin/bash
+                working_directory: configuration
+                run_if: passed   
