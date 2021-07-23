@@ -68,7 +68,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - source ../configuration/config-venv/bin/activate && ansible-playbook -c local -i "localhost," -e @credentials.yaml -e JENKINS_USERNAME -e JENKINS_PASSWORD create_jenkins_credentials.yml -vvv 
+                - source ../configuration/config-venv/bin/activate && ansible-playbook -c local -i "localhost," -e @credentials.yaml -e JENKINS_USERNAME=$JENKINS_USERNAME -e JENKINS_PASSWORD=$JENKINS_PASSWORD create_jenkins_credentials.yml -vvv 
                 command: /bin/bash
                 working_directory: ansible-jenkins-creds-api
                 run_if: passed                
