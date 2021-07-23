@@ -24,6 +24,8 @@ pipelines:
         AWS_ACCESS: "{{SECRET:[gocd-secret][ACCESS]}}"
         AWS_SECRET_KEY: "{{SECRET:[gocd-secret][SECRET]}}"
         JOB_DIR: "{{SECRET:[gocd-secret][DIRECTORY]}}"
+        MCKINSEY-CONTINOUS-INTEGRATION-ROLE-ARN: "{{SECRET:[gocd-secret][ROLE-ARN]}}"
+        SLACK_AUTHORIZATION_TOKEN: "{{SECRET:[gocd-secret][TOKEN]}}"
     stages:
     - installing_requirements:
         fetch_materials: true
@@ -68,7 +70,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - source ../configuration/config-venv/bin/activate && ansible-playbook -c local -i "localhost," -e @credentials.yaml -e JENKINS_USERNAME=$JENKINS_USERNAME -e JENKINS_PASSWORD=$JENKINS_PASSWORD -e AWS_ACCESS=$AWS_ACCESS -e AWS_SECRET_KEY=$AWS_SECRET_KEY -e JOB_DIR=$JOB_DIR create_jenkins_credentials.yml -vvv 
+                - source ../configuration/config-venv/bin/activate && ansible-playbook -c local -i "localhost," -e @credentials.yaml -e JENKINS_USERNAME=$JENKINS_USERNAME -e JENKINS_PASSWORD=$JENKINS_PASSWORD -e AWS_ACCESS=$AWS_ACCESS -e AWS_SECRET_KEY=$AWS_SECRET_KEY -e JOB_DIR=$JOB_DIR -e MCKINSEY-CONTINOUS-INTEGRATION-ROLE-ARN=$MCKINSEY-CONTINOUS-INTEGRATION-ROLE-ARN -e SLACK_AUTHORIZATION_TOKEN=$SLACK_AUTHORIZATION_TOKEN create_jenkins_credentials.yml -vvv 
                 command: /bin/bash
                 working_directory: ansible-jenkins-creds-api
                 run_if: passed                
