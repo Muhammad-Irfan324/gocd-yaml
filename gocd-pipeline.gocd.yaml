@@ -33,7 +33,7 @@ pipelines:
           type: success
           allow_only_on_success: false
         jobs:
-          virtual_env:
+          virtual_env_&_Upload_creds:
             timeout: 0
             tasks:
             - exec:
@@ -64,10 +64,7 @@ pipelines:
                 - source config-venv/bin/activate && pip install -r requirements.txt && ansible --version 
                 command: /bin/bash
                 working_directory: configuration
-                run_if: passed   
-          uploading_creds:
-            timeout: 0
-            tasks:       
+                run_if: passed         
             - exec:
                 arguments:
                 - -c
