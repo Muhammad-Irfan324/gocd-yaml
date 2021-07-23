@@ -49,9 +49,7 @@ pipelines:
             - exec:
                 arguments:
                 - -c
-                - source config-venv/bin/activate
-                - pip install -r requirements.txt
-                - ansible version
+                - source config-venv/bin/activate && pip install -r requirements.txt && ansible --version 
                 command: /bin/bash
                 working_directory: configuration
                 run_if: passed          
