@@ -12,6 +12,18 @@ pipelines:
         auto_update: true
         branch: yonkers-juniper
         destination: configuration
+      ansible-jenkins-creds-api:
+        git: git@github.com:Muhammad-Irfan324/ansible-jenkins-creds-api.git
+        shallow_clone: false
+        auto_update: true
+        branch: master
+        destination: ansible-jenkins-creds-api
+    environment_variables:
+        JENKINS_USERNAME: "{{SECRET:[gocd-secret][USERNAME]}}"
+        JENKINS_PASSWORD: "{{SECRET:[gocd-secret][PASSWORD]}}"
+        AWS_ACCESS: "{{SECRET:[gocd-secret][ACCESS]}}"
+        AWS_SECRET_KEY: "{{SECRET:[gocd-secret][SECRET]}}"
+        JOB_DIR: "{{SECRET:[gocd-secret][DIRECTORY]}}"
     stages:
     - installing_requirements:
         fetch_materials: true
