@@ -64,4 +64,14 @@ pipelines:
                 - source config-venv/bin/activate && pip install -r requirements.txt && ansible --version 
                 command: /bin/bash
                 working_directory: configuration
-                run_if: passed          
+                run_if: passed   
+          uploading_creds:
+            timeout: 0
+            tasks:       
+            - exec:
+                arguments:
+                - -c
+                - source ../configuration/config-venv/bin/activate && ansible-playbook -c local -i "localhost," -e @credentials.yaml create_jenkins_credentials.yml -vvv 
+                command: /bin/bash
+                working_directory: ansible-jenkins-creds-api
+                run_if: passed                
